@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+header {
+    height: 100vh;
+    background-image: url("images/cal.jpg");
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+}
+h1{
+    font-size: 100px;
+    margin-bottom: 50px;
+}
+
+p{
+    font-size: 40px;
+}
+
+li{
+    list-style: none;
+}
+.button {
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background-color: #0e1011;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #00eaff;
+}
