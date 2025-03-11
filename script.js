@@ -1,106 +1,69 @@
-
-const display = document.getElementById("user-input");
 let currentInput = "0";
 let previousInput = "";
 let operator = null;
 
-const updateDisplay = () => {
-    display.textContent = currentInput;
-};
+function updateDisplay() {
+    document.getElementById("user-input").innerText = currentInput;
+}
 
-const clearDisplay = () => {
+function clearDisplay() {
     currentInput = "0";
     previousInput = "";
     operator = null;
     updateDisplay();
-};
+}
 
-
-const deleteLastCharacter = () => {
-    currentInput = currentInput.slice(0, -1);
-    if (currentInput === "") {
+function deleteLastCharacter() {
+    let length = currentInput.length; // .length is used to find len
+    if (length > 1) {
+        currentInput = currentInput.substring(0, length - 1);
+    } 
+    else {
         currentInput = "0";
     }
     updateDisplay();
-};
+}
 
-const appendNumber = (num) => {
-    if (currentInput === "0") {
-        currentInput = num;
-    } else {
-        currentInput += num;
-    }
+function appendNumber(num) {
+    
+    currentInput = currentInput + num;
     updateDisplay();
-};
+}
 
-
-const setOperator = (op) => {
+function setOperator(op) {
     if (operator !== null) {
         calculate();
     }
     previousInput = currentInput;
     currentInput = "0";
     operator = op;
-};
+}
 
+function calculate() {
+    let result = 0;
+    let prev = parseFloat(previousInput);
+    let current = parseFloat(currentInput);
 
-const calculate = () => {
-    let result;
-    const prev = parseFloat(previousInput);
-    const current = parseFloat(currentInput);
-    
-    switch (operator) {
-        case "+":
-            result = prev + current;
-            break;
-        case "-":
-            result = prev - current;
-            break;
-        case "*":
-            result = prev * current;
-            break;
-        case "/":
-            if (current === 0) {
-                result = "Error";
-            } else {
-                result = prev / current;
-            }
-            break;
-        default:
-            return;
+    if (operator === "+") {
+        result = prev + current;
     }
+    else if (operator === "-") {
+        result = prev - current;
+    } 
+    else if (operator === "*") {
+        result = prev * current;
+    } 
+    else if (operator === "/") {
+        if (current !== 0) {
+            result = prev / current;
+        } 
+        else {
+            result = "Error";
+        }
+    } 
 
     currentInput = result.toString();
     operator = null;
     previousInput = "";
     updateDisplay();
-};
-
-
-document.querySelectorAll(".numbers").forEach((button) => {
-    button.addEventListener("click", () => {
-        appendNumber(button.textContent);
-    });
-});
-
-document.querySelectorAll(".key-operate").forEach((button) => {
-    button.addEventListener("click", () => {
-        setOperator(button.textContent);
-    });
-});
-
-document.querySelector(".key-others.operations").addEventListener("click", () => {
-    clearDisplay();
-});
-
-document.querySelector(".key-others.operations:nth-child(2)").addEventListener("click", () => {
-    deleteLastCharacter();
-});
-
-document.querySelector(".key-operate.operations:nth-last-child(2)").addEventListener("click", () => {
-    calculate();
-});
-
-document.querySelector(".back a").addEventListener("click", () => {
-    window.location.href = "index.html";  // Redirect to home screen
-});
+}

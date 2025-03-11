@@ -11,34 +11,34 @@
 <body>
     <div class="container">
         <div class="calc-text">
-            <p name="user-input" id="user-input">
-                0
-            </p>
+            <p id="user-input">0</p> 
         </div>
         <div class="keys">
-            <button type="button" class="key-others operations">AC</button>
-            <button type="button" class="key-others operations">DEL</button>
-            <button type="button" class="key-others operations">%</button>
-            <button type="button" class="key-operate operations">/</button>
-            <button type="button" class="numbers">7</button>
-            <button type="button" class="numbers">8</button>
-            <button type="button" class="numbers">9</button>
-            <button type="button" class="key-operate operations">*</button>
-            <button type="button" class="numbers">4</button>
-            <button type="button" class="numbers">5</button>
-            <button type="button" class="numbers">6</button>
-            <button type="button" class="key-operate operations">-</button>
-            <button type="button" class="numbers">1</button>
-            <button type="button" class="numbers">2</button>
-            <button type="button" class="numbers">3</button>
-            <button type="button" class="key-operate operations">+</button>
-            <button type="button" class="key-zero numbers">0</button>
-            <button type="button" class="numbers">.</button>
-            <button type="button" class="key-operate operations">=</button>
-            <button type="button" class="back"><a href="index.html">&#x2199</a></button>
+            <button class="key-others" onclick="clearDisplay()">AC</button>
+            <button class="key-others" onclick="deleteLastCharacter()">DEL</button>
+            <button class="key-others" onclick="setOperator('%')">%</button>
+            <button class="key-operate" onclick="setOperator('/')">/</button>
+            <button class="numbers" onclick="appendNumber('7')">7</button>
+            <button class="numbers" onclick="appendNumber('8')">8</button>
+            <button class="numbers" onclick="appendNumber('9')">9</button>
+            <button class="key-operate" onclick="setOperator('*')">*</button>
+            <button class="numbers" onclick="appendNumber('4')">4</button>
+            <button class="numbers" onclick="appendNumber('5')">5</button>
+            <button class="numbers" onclick="appendNumber('6')">6</button>
+            <button class="key-operate" onclick="setOperator('-')">-</button>
+            <button class="numbers" onclick="appendNumber('1')">1</button>
+            <button class="numbers" onclick="appendNumber('2')">2</button>
+            <button class="numbers" onclick="appendNumber('3')">3</button>
+            <button class="key-operate" onclick="setOperator('+')">+</button>
+            <button class="key-zero numbers" onclick="appendNumber('0')">0</button>
+            <button class="numbers" onclick="appendNumber('.')">.</button>
+            <button class="key-operate" onclick="calculate()">=</button>
+            <button class="back"><a href="index.html">&#x2199</a></button>
         </div>
     </div>
+    <script src="script.js"></script>
+
 </body>
-    <script type="text/javascript" src="script.js"></script>
 
 </html>
+
